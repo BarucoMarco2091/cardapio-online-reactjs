@@ -1,7 +1,7 @@
 import { Container } from "../../../components/container"
 import { DashboardHeader } from "../../../components/panelHeader"
 import { FiUpload, FiTrash } from "react-icons/fi"
-import { url, z } from "zod"
+import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Input } from "../../../components/input"
