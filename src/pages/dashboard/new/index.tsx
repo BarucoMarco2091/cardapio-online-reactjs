@@ -15,9 +15,9 @@ import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage
 
 const schema = z.object({
     name: z.string().nonempty("O campo nome é obrigatório"),
-    price: z.string().nonempty("O campo preço é obrigatório"),
+    price: z.number(),
     description: z.string().nonempty("O campo descrição é obrigatório")
-})
+}).strict()
 
 type FormData = z.infer<typeof schema>
 
@@ -34,6 +34,7 @@ export function New() {
     const { user } = useContext(AuthContext)
     const { handleSubmit, register, formState: { errors }, reset } = useForm<FormData>({
         resolver: zodResolver(schema),
+
         mode: "onChange"
     })
 
@@ -88,6 +89,7 @@ export function New() {
         console.log(data)
         if (hamburgerImages.length === 0) {
             alert("Envie uma imagem do lanche")
+            return
         }
 
         const hamburgerListImages = hamburgerImages.map((car) => {
@@ -159,11 +161,14 @@ export function New() {
                     <div className="mb-3">
                         <p>Preço do lanche</p>
                         <Input
-                            type="text"
+                            type="number"
                             register={register}
-                            name="price"
+                            
                             error={errors.price?.message}
                             placeholder="Ex: R$ 25.90"
+                            {...register("price", {
+                                valueAsNumber: true
+                            })}
                         />
                     </div>
 

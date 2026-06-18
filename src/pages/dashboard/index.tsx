@@ -12,7 +12,8 @@ interface HamburgerProps {
     description: string;
     price: number;
     uid: string;
-    images: ImageItemProps[]
+    
+    images: ImageItemProps[];
 }
 
 interface ImageItemProps {
@@ -40,7 +41,8 @@ export function Dashboard() {
                             description: doc.data().description,
                             price: doc.data().price,
                             images: doc.data().images,
-                            uid: doc.data().uid
+                            uid: doc.data().uid,
+                           
                         })
                     })
                     setHamburgers(listHamburgers)
@@ -79,8 +81,8 @@ export function Dashboard() {
                             <FiTrash2 size={26} color="#000" />
                         </button>
                         <img
-                            className="w-full rounded-lg mb-2 max-h-72 hover:scale-105 transition-all"
-                            src={burger.images[0].url}
+                            className="w-full rounded-lg mb-2 max-h-72"
+                            src={burger.images?.[0]?.url}
                             alt="cheeseburger" />
                         <p className="font-bold mt-1 mb-2 px-2">{burger.name}</p>
                         <div className="flex flex-col px-2">

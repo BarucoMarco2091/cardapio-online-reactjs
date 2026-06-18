@@ -68,7 +68,7 @@ export function Home() {
     return (
         <main className="flex flex-col">
             <div>
-                <img src={bannerImg} alt="" />
+                <img src={bannerImg} alt="" className="md:h-full max-h-72 w-full"/>
             </div>
             <Container>
                 <h1 className="mt-9 text-4xl font-bold text-center mb-5">Cardápio</h1>
@@ -80,7 +80,7 @@ export function Home() {
                             </div>
                             <img
                                 className="w-full rounded-lg mb-2 max-h-72 hover:scale-105 transition-all"
-                                src={burger.images[0].url}
+                                src={burger.images?.[0]?.url}
                                  onLoad={() => handleImageLoad(burger.id)}
                                 style={{display: loadImages.includes(burger.id) ? "block" : "none"}} 
                                 alt="cheeseburger" />

@@ -1,7 +1,7 @@
 
 import { FiShoppingCart } from 'react-icons/fi'
 import { Link } from 'react-router'
-import logo from '../../assets/hamb-6 (1).png'
+import logo from '../../assets/logo.svg'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
@@ -11,9 +11,9 @@ export function Header() {
 
     return (
         <header className='flex bg-white'>
-            <nav className='w-full max-w-7xl h-14 flex justify-between m-auto py-4 mb-2'>
+            <nav className='w-full max-w-7xl h-14 flex justify-between m-auto py-4 px-4 md:px-2 mb-2'>
                 <Link className='font-bold text-2xl' to="/">
-                    <img src={logo} alt="logo" className='rounded-full w-12 object-cover' />
+                    <img src={logo} alt="logo"/>
                 </Link>
                 <Link className='relative' to="/cart">
                     <FiShoppingCart size={24} color='#121212' />

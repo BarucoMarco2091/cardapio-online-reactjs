@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useState } from "react";
+import { createContext, type ReactNode, useState, useEffect } from "react";
 import { type HamburgerProps } from "../pages/home";
 
 interface CartContextData {
@@ -35,14 +35,35 @@ export const CartContext = createContext({} as CartContextData)
 function CartProvider({ children }: CartProviderProps) {
     const [cart, setCart] = useState<CartProps[]>([])
     const [total, setTotal] = useState("")
+    // 1 salvar a lista
+    // 2 listar
+    // 3 editar 
+    function saveLocalStorage(list: CartProps[]) {
+        localStorage.setItem("hamburguercart", JSON.stringify(list))
+    }
+
+    function getLocalStorage() {
+        const response = localStorage.getItem("hamburguercart")
+        if(!response) return null
+        const responseJson = JSON.parse(response)
+        setCart(responseJson)
+        totalResultCart(responseJson)
+    }
+
+    useEffect(() => {
+
+        getLocalStorage()
+    }, [])
 
     function addItem(newItem: HamburgerProps) {
         const indexItem = cart.findIndex(cart => cart.id === newItem.id)
         if (indexItem !== -1) {
+
             let cartList = cart
             cartList[indexItem].amount = cartList[indexItem].amount + 1
             cartList[indexItem].total = cartList[indexItem].price * cartList[indexItem].amount
             setCart(cartList)
+            saveLocalStorage(cartList)
             totalResultCart(cartList)
             return
         }
@@ -53,6 +74,7 @@ function CartProvider({ children }: CartProviderProps) {
             total: newItem.price
         }
 
+        saveLocalStorage([...cart, data])
         setCart(products => [...products, data])
         totalResultCart([...cart, data])
     }
@@ -65,10 +87,12 @@ function CartProvider({ children }: CartProviderProps) {
             cartList[indexItem].total = cartList[indexItem].total - cartList[indexItem].price
             setCart(cartList)
             totalResultCart(cartList)
+            saveLocalStorage(cartList)
             return
         }
 
         const cartItem = cart.filter((item) => item.id !== product.id)
+        saveLocalStorage(cartItem)
         setCart(cartItem)
         totalResultCart(cartItem)
     }
