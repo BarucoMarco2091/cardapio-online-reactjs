@@ -6,6 +6,7 @@ interface CartContextData {
     cartAmount: number;
     addItem: (newItem: HamburgerProps) => void;
     removeItem: (product: CartProps) => void;
+    clearCart: () => void;
     total: string;
 }
 
@@ -106,8 +107,14 @@ function CartProvider({ children }: CartProviderProps) {
         setTotal(formatedResult)
     }
 
+    function clearCart() {
+        setCart([])
+        setTotal("R$ 0,00")
+        localStorage.removeItem("hamburguercart")
+    }
+
     return (
-        <CartContext.Provider value={{ cart, cartAmount: cart.length, addItem, removeItem, total }}>
+        <CartContext.Provider value={{ cart, cartAmount: cart.length, addItem, removeItem, total, clearCart }}>
             {children}
         </CartContext.Provider>
     )

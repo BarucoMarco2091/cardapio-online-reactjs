@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 
 export function Cart() {
     // consumir o contexto
-    const { cart, addItem, removeItem, total } = useContext(CartContext)
+    const { cart, addItem, removeItem, total, clearCart } = useContext(CartContext)
 
     const products = cart.map(item => `${item.name} (${item.amount}x)`).join(",")
 
@@ -44,18 +44,19 @@ export function Cart() {
                             currency: "BRL"
                         })}
                     </strong>
-                    
+
                 </section>
             ))}
 
             {cart.length > 0 && (
                 <a
-                        target="_blank"
-                        href={`https://api.whatsapp.com/send?phone=5511996221043&text=Olá! Tenho interesse nos seguintes produtos: ${products}. Total do pedido: ${total}`}
-                        className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer">
-                        Conversar com o vendedor
-                        <FaWhatsapp size={26} color="#FFF" />
-                    </a>
+                    onClick={clearCart}
+                    target="_blank"
+                    href={`https://api.whatsapp.com/send?phone=5511996221043&text=Olá! Tenho interesse nos seguintes produtos: ${products}. Total do pedido: ${total}`}
+                    className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer">
+                    Conversar com o vendedor
+                    <FaWhatsapp size={26} color="#FFF" />
+                </a>
             )}
 
             {cart.length !== 0 && <p className="font-bold mt-4">Total: {total}</p>}
