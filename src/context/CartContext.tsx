@@ -1,5 +1,6 @@
 import { createContext, type ReactNode, useState, useEffect } from "react";
 import { type HamburgerProps } from "../pages/home";
+import { toast } from "react-toastify"
 
 interface CartContextData {
     cart: CartProps[];
@@ -78,6 +79,7 @@ function CartProvider({ children }: CartProviderProps) {
         saveLocalStorage([...cart, data])
         setCart(products => [...products, data])
         totalResultCart([...cart, data])
+        toast.success("Item adicionado no carrinho!")
     }
 
     function removeItem(product: CartProps) {
@@ -96,6 +98,7 @@ function CartProvider({ children }: CartProviderProps) {
         saveLocalStorage(cartItem)
         setCart(cartItem)
         totalResultCart(cartItem)
+          toast.success("Item removido do carrinho!")
     }
 
     function totalResultCart(items: CartProps[]) {

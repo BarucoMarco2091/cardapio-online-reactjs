@@ -8,6 +8,7 @@ import { Input } from "../../components/input"
 import { auth } from "../../services/firebaseConnection"
 import { signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { useEffect } from "react"
+import { toast } from "react-toastify";
 
 const schema = z.object({
     email: z.string().email("Insira um email válido").nonempty("campo obrigatório"),
@@ -46,6 +47,7 @@ export function Login() {
             console.log("Erro ao logar!")
             console.log(err)
         })
+        toast.success("Logado com sucesso!")
     }
 
     return (
@@ -77,11 +79,9 @@ export function Login() {
                             error={errors.password?.message}
                         />
                     </div>
-                    <button type="submit" className="bg-zinc-900 w-full rounded-md text-white h-10 font-medium">Acessar</button>
+                    <button type="submit" className="bg-red-500 hover:bg-green-700 transition-discrete w-full rounded-md text-white h-10 font-medium">Acessar</button>
                 </form>
-                <Link to="/register">
-                    Ainda não possui uma conta? Cadastre-se
-                </Link>
+                
             </div>
         </Container>
     )

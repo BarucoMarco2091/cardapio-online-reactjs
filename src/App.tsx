@@ -3,7 +3,7 @@ import { Cart } from "./pages/car";
 import { Dashboard } from "./pages/dashboard";
 import { New } from "./pages/dashboard/new";
 import { Login } from "./pages/login";
-import { Register } from "./pages/register";
+
 import { createBrowserRouter } from 'react-router'
 import { Layout } from "./components/layout";
 import { Private } from "./routes/Private";
@@ -34,10 +34,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login/>
   },
-  {
-    path: "/register",
-    element: <Register/>
-  }
 ])
 
 export { router }

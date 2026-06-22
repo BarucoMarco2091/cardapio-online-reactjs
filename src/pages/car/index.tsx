@@ -25,16 +25,16 @@ export function Cart() {
             {cart.map((item) => (
                 <section key={item.id} className="flex flex-col items-center justify-between border-b-2 border-gray-300 md:flex-row">
                     <img src={item.images[0].url} alt={item.name}
-                        className="w-28"
+                        className="w-28 rounded-xl"
                     />
 
                     <strong>Preço: {item.price}</strong>
                     <div className="flex items-center justify-center gap-3">
-                        <button onClick={() => removeItem(item)} className="bg-slate-600 px-2 rounded text-white font-medium flex items-center justify-center">
+                        <button onClick={() => removeItem(item)} className="bg-red-500 px-2 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete ">
                             -
                         </button>
                         {item.amount}
-                        <button onClick={() => addItem(item)} className="bg-slate-600 px-2 rounded text-white font-medium flex items-center justify-center">
+                        <button onClick={() => addItem(item)} className="bg-red-500 px-2 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete">
                             +
                         </button>
                     </div>
@@ -53,7 +53,7 @@ export function Cart() {
                     onClick={clearCart}
                     target="_blank"
                     href={`https://api.whatsapp.com/send?phone=5511996221043&text=Olá! Tenho interesse nos seguintes produtos: ${products}. Total do pedido: ${total}`}
-                    className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer">
+                    className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer hover:bg-red-500 transition-discrete">
                     Enviar pedido
                     <FaWhatsapp size={26} color="#FFF" />
                 </a>

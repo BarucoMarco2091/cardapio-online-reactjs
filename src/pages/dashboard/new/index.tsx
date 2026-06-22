@@ -120,7 +120,7 @@ export function New() {
 
     return (
         <Container>
-            <DashboardHeader />
+            <DashboardHeader/>
             <div className="w-full bg-white p-3 rounded-lg flex flex-col sm:flex-row items-center gap-2">
                 <button className="border-2 w-48 rounded-lg justify-center cursor-pointer border-gray-600 h-32 md:w-48">
                     <div className="absolute cursor-pointer">

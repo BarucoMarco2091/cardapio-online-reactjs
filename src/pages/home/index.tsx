@@ -85,13 +85,14 @@ export function Home() {
                                 style={{display: loadImages.includes(burger.id) ? "block" : "none"}} 
                                 alt="cheeseburger" />
                             <p className="font-bold mt-1 mb-2 px-2">{burger.name}</p>
-                            <div className="flex flex-col px-2">
-                                <p className="text-zinc-700 mb-6">{burger.description}</p>
+                            <p className="text-zinc-700 mb-6 leading-5">{burger.description}</p>
+                            <div className="flex flex-row justify-between px-2">
                                 <strong className="text-black font-medium text-xl">R$ {burger.price}</strong>
-                            </div>
-                            <button onClick={() => handleAddItem(burger)}>
-                                <BsCartPlus size={20} color="#ff2c2c"/>
+                                <button onClick={() => handleAddItem(burger)} className="bg-red-600 p-3 rounded-lg hover:bg-green-700 transition-discrete cursor-pointer">
+                                <BsCartPlus size={20} color="#fff"/>
                             </button>
+                            </div>
+                            
                         </div>
                     ))}
 
