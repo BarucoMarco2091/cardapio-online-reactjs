@@ -84,8 +84,8 @@ export function Home() {
                                  onLoad={() => handleImageLoad(burger.id)}
                                 style={{display: loadImages.includes(burger.id) ? "block" : "none"}} 
                                 alt="cheeseburger" />
-                            <p className="font-bold mt-1 mb-2 px-2">{burger.name}</p>
-                            <p className="text-zinc-700 mb-6 leading-5">{burger.description}</p>
+                            <p className="font-bold mt-1 mb-2 px-2 text-center text-xl">{burger.name}</p>
+                            <p className="text-zinc-700 mb-6 leading-5 text-center">{burger.description}</p>
                             <div className="flex flex-row justify-between px-2">
                                 <strong className="text-black font-medium text-xl">R$ {burger.price}</strong>
                                 <button onClick={() => handleAddItem(burger)} className="bg-red-600 p-3 rounded-lg hover:bg-green-700 transition-discrete cursor-pointer">
