@@ -10,7 +10,7 @@ export function Header() {
     const { cartAmount } = useContext(CartContext)
 
     return (
-        <header className='flex bg-white w-full'>
+        <header className='flex bg-white w-full fixed'>
             <nav className='w-full max-w-7xl h-14 flex justify-between m-auto py-4 px-4 md:px-2 mb-2'>
                 <Link className='font-bold text-2xl' to="/">
                     <img src={logo} alt="logo"/>
