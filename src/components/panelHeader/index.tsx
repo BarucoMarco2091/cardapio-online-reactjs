@@ -9,7 +9,7 @@ export function DashboardHeader() {
     }
 
     return(
-        <div className="w-full items-center my-3 z-50 flex h-10 bg-red-500 rounded-lg text-white font-medium gap-4 px-4 mb-4">
+        <div className="w-full items-center my-3 flex h-10 bg-red-500 rounded-lg text-white font-medium gap-4 px-4 mb-4">
             <Link to="/dashboard">
                 Dashboard
             </Link>
