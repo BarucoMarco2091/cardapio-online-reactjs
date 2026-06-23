@@ -81,7 +81,7 @@ export function Login() {
                             error={errors.password?.message}
                         />
                     </div>
-                    <button type="submit" className="bg-red-500 hover:bg-green-700 transition-discrete w-full rounded-md text-white h-10 font-medium">Acessar</button>
+                    <button type="submit" className="bg-red-500 hover:bg-green-700 transition-discrete w-full rounded-md text-white h-10 font-medium cursor-pointer">Acessar</button>
                 </form>
 
             </div>
