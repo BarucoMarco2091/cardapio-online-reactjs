@@ -30,11 +30,11 @@ export function Cart() {
 
                     <strong>Preço: {item.price}</strong>
                     <div className="flex items-center justify-center gap-3">
-                        <button onClick={() => removeItem(item)} className="bg-red-500 px-2 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete ">
+                        <button onClick={() => removeItem(item)} className="bg-red-500 px-3 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete ">
                             -
                         </button>
                         {item.amount}
-                        <button onClick={() => addItem(item)} className="bg-red-500 px-2 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete">
+                        <button onClick={() => addItem(item)} className="bg-red-500 px-3 rounded text-white font-medium flex items-center justify-center cursor-pointer hover:bg-green-700 transition-discrete">
                             +
                         </button>
                     </div>
