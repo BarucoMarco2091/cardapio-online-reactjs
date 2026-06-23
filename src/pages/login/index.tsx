@@ -38,16 +38,18 @@ export function Login() {
     function onSubmit(data: FormData) {
         console.log(data)
         signInWithEmailAndPassword(auth, data.email, data.password)
-        .then((user) => {
-            console.log(user)
-            console.log("Logado com sucesso!")
-            navigate("/dashboard", { replace: true })
-        })
-        .catch(err => {
-            console.log("Erro ao logar!")
-            console.log(err)
-        })
-        toast.success("Logado com sucesso!")
+            .then((user) => {
+                console.log(user)
+                console.log("Logado com sucesso!")
+                navigate("/dashboard", { replace: true })
+                toast.success("Logado com sucesso!")
+            })
+            .catch(err => {
+                console.log("Erro ao logar!")
+                console.log(err)
+                toast.warn("Erro ao logar!")
+            })
+
     }
 
     return (
@@ -81,7 +83,7 @@ export function Login() {
                     </div>
                     <button type="submit" className="bg-red-500 hover:bg-green-700 transition-discrete w-full rounded-md text-white h-10 font-medium">Acessar</button>
                 </form>
-                
+
             </div>
         </Container>
     )

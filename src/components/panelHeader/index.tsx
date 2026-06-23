@@ -17,7 +17,7 @@ export function DashboardHeader() {
                 Cadastrar lanches
             </Link>
 
-            <button className="ml-auto" onClick={handleLogout}>
+            <button className="ml-auto cursor-pointer" onClick={handleLogout}>
                 Sair da conta
             </button>
         </div>

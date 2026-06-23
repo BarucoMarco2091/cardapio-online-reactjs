@@ -77,7 +77,7 @@ export function Dashboard() {
                     <div key={burger.id} className="w-full rounded-lg bg-white relative">
                         <button
                             onClick={() => handleDeleteHamburger(burger)}
-                            className="absolute bg-white w-14 h-14 rounded-full flex items-center justify-center right-2 top-2 drop-shadow">
+                            className="absolute bg-white w-14 h-14 rounded-full flex items-center justify-center right-2 top-2 drop-shadow cursor-pointer hover:bg-green-700 transition-discrete">
                             <FiTrash2 size={26} color="#000" />
                         </button>
                         <img

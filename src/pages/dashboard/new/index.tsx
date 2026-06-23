@@ -133,7 +133,7 @@ export function New() {
 
                 {hamburgerImages.map(item => (
                     <div key={item.name} className="w-full h-32 flex items-center justify-center relative">
-                        <button className="absolute" onClick={() => handleDelete(item)}>
+                        <button className="absolute cursor-pointer hover:bg-green-700 transition-discrete" onClick={() => handleDelete(item)}>
                             <FiTrash size={24} color="#FFF" />
                         </button>
                         <img
@@ -184,7 +184,7 @@ export function New() {
 
                         {errors.description && <p className="mb-1 text-red-500">{errors.description.message}</p>}
                     </div>
-                    <button type="submit" className="rounded-md bg-zinc-900 text-white font-medium w-full cursor-pointer h-10">
+                    <button type="submit" className="rounded-md bg-red-500 text-white font-medium w-full cursor-pointer h-10 hover:bg-green-700 transition-discrete">
                         Cadastrar
                     </button>
                 </form>

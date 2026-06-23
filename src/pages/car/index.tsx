@@ -11,14 +11,14 @@ export function Cart() {
     const products = cart.map(item => `${item.name} (${item.amount}x)`).join(",")
 
     return (
-        <div className="w-full max-w-7xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto md:px-0.5 px-1.5">
 
             <h1 className="font-medium text-2xl text-center my-4">Meu carrinho</h1>
 
             {cart.length === 0 && (
                 <div className="flex flex-col items-center justify-center">
                     <p className="font-medium">Ops seu carrinho está vazio...</p>
-                    <Link className="bg-slate-600 my-3 p-1 text-white font-medium rounded px-3" to="/">Acessar produtos</Link>
+                    <Link className="bg-red-500 cursor-pointer my-3 p-1 text-white font-medium rounded px-3  hover:bg-green-700 transition-discrete" to="/">Acessar produtos</Link>
                 </div>
             )}
 
